@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ .title }}</title>
+    <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-    <h1>{{ .message }}</h1>
-
-    <form action="/submit" method="post">
-        <input type="url" name="utubeURL" placeholder="Paste your url here">
-        <button type="submit">Do it</button>
-    </form>
-
-    {{ if .error }}
-        <p class="error">{{ .error }}</p>
-    {{ end }}
+    <div class="container">
+        <h1 class="title">{{ .message }}</h1>
+        <form action="/submit" method="post" class="form">
+            <input
+                type="url"
+                name="utubeURL"
+                placeholder="https://youtube.com/..."
+                required
+                class="input"
+            />
+            <button type="submit" class="button">Download MP3</button>
+        </form>
+        {{ if .error }}
+            <p class="error">{{ .error }}</p>
+        {{ end }}
+    </div>
 </body>
 </html>

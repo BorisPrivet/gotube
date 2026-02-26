@@ -12,7 +12,7 @@ func main() {
 	r := gin.Default()
 
 	r.LoadHTMLGlob("frontend/templates/*")
-	// r.Static("frontend/static", "")
+	r.Static("/static", "./frontend/static")
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", gin.H{
