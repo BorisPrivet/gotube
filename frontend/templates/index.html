@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ .title }}</title> <!-- Вывод переменной title -->
+    <title>{{ .title }}</title>
 </head>
 <body>
     <h1>{{ .message }}</h1>
+
+    <form action="/submit" method="post">
+        <input type="url" name="utubeURL" placeholder="Paste your url here">
+        <button type="submit">Do it</button>
+    </form>
+
+    {{ if .error }}
+        <p class="error">{{ .error }}</p>
+    {{ end }}
 </body>
 </html>
